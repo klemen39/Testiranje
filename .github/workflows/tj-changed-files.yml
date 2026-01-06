@@ -1,12 +1,18 @@
 name: "tj-action changed-files incident"
+
 on:
   pull_request:
     branches:
       - main
+
 jobs:
   changed_files:
     runs-on: self-hosted
+
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@0e58ed8671d6b60d0890c21b07f8835ace038e67
